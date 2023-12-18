@@ -1,20 +1,15 @@
 import { readFileSync } from 'fs';
 
-export function readData(filename = "./12-hot-springs/input.txt"): [string, number[]][] {
+function readData(filename = "./12-hot-springs/input.txt"): [string, number[]][] {
     const data: [string, number[]][] = [];
     const rawData = readFileSync(filename).toString().trimEnd();
     for (const eachRow of rawData.split('\n')) {
-        var [rawSeries, rawFaults] = eachRow.split(' ');
-        var series: string = '';
-        var faults: number[] = [];
-        for (var i = 0; i < 5; i++) {
-            series += rawSeries + '?';
-            faults = faults.concat(rawFaults.split(',').map(x => parseInt(x)));
-        }
-
-        data.push([series.slice(0, series.length - 1), faults])
+        const [rawSeries, rawFaults] = eachRow.split(' ');
+        data.push([
+            rawSeries,
+            rawFaults.split(',').map(x => parseInt(x))
+        ])
     }
-
     return data;
 }
 
@@ -46,9 +41,8 @@ function permute(series: string, faults: number[]): number {
 function main() {
     const data = readData();
     var sum = 0;
-    for (const record of data) {
-        sum += permute(record[0], record[1]);
-    }
+    for (const row of data)
+        sum += permute(row[0], row[1]);
     return sum;
 }
 

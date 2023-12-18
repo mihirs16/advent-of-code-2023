@@ -19,28 +19,38 @@ export function readData(filename = "./12-hot-springs/input.txt"): [string, numb
 }
 
 function permute(series: string, faults: number[]): number {
-    if (series.length === 0)
-        return faults.length === 0 ? 1 : 0;
+    const cache = new Map<string, number>();
+    function dfs(series: string, faults: number[]) {
+        const k = [series, faults].toString();
+        const v = cache.get(k);
+        if (v !== undefined) return v;
 
-    if (faults.length === 0)
-        return series.includes('#') ? 0 : 1;
+        if (series.length === 0)
+            return faults.length === 0 ? 1 : 0;
 
-    var result = 0;
-    if (series[0] === '.' || series[0] === '?')
-        result += permute(series.slice(1), faults);
+        if (faults.length === 0)
+            return series.includes('#') ? 0 : 1;
 
-    if (series[0] === '#' || series[0] === '?')
-        if (
-            faults[0] <= series.length
-            && !series.slice(0, faults[0]).includes('.')
-            && (
-                faults[0] === series.length
-                || series[faults[0]] !== '#'
+        var result = 0;
+        if (series[0] === '.' || series[0] === '?')
+            result += dfs(series.slice(1), faults);
+
+        if (series[0] === '#' || series[0] === '?')
+            if (
+                faults[0] <= series.length
+                && !series.slice(0, faults[0]).includes('.')
+                && (
+                    faults[0] === series.length
+                    || series[faults[0]] !== '#'
+                )
             )
-        )
-            result += permute(series.slice(faults[0] + 1), faults.slice(1));
+                result += dfs(series.slice(faults[0] + 1), faults.slice(1));
 
-    return result;
+        cache.set(k, result);
+        return result;
+    }
+
+    return dfs(series, faults);
 }
 
 function main() {
