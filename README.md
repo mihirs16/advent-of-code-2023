@@ -4,6 +4,7 @@ My solutions to the [Advent of Code 2023](https://adventofcode.com/2023) puzzles
 
 ## Contents
 
+- [Day 1: Trebuchet!?](/1-trebuchet/)
 - [Day 4: Scratchcards](/4-scratchcards/)
 - [Day 5: Seed Fertilizer](/5-seed-fertilizer/)
 - [Day 6: Wait For It](/6-wait-for-it/)
