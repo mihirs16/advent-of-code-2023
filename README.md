@@ -15,3 +15,4 @@ My solutions to the [Advent of Code 2023](https://adventofcode.com/2023) puzzles
 - [Day 12: Hot Springs](/12-hot-springs/)
 - [Day 13: Point of Incidence](/13-point-of-incidence/)
 - [Day 14: Parabolic Reflector Dish](/14-parabolic-reflector-dish/)
+- [Day 15: Lens Library](/15-lens-library/)
