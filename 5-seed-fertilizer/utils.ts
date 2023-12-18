@@ -31,7 +31,7 @@ function rangeMapsFromRaw(rawData: string): RangeMap[] {
         });
 }
 
-function readData(filename = "input.txt") {
+function readData(filename = "./5-seed-fertilizer/input.txt") {
     var f = readFileSync(filename);
     var rawData = f.toString().trim().split("\n\n");
     var data: Data = {

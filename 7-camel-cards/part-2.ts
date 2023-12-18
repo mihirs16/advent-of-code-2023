@@ -66,7 +66,7 @@ function calculateHandType(hand: string): HandType {
     return handType;
 }
 
-function readData(filename = "input.txt"): HandData[] {
+function readData(filename = "./7-camel-cards/input.txt"): HandData[] {
     var rawData = readFileSync(filename, "utf8").trimEnd();
     return rawData.split("\n").map((line) => {
         var [hand, rawBid] = line.split(" ");
@@ -88,7 +88,7 @@ function compareHands(hand1Data: HandData, hand2Data: HandData): -1 | 0 | 1 {
 }
 
 function solve(): void {
-    const data = readData("input.txt");
+    const data = readData();
     data.sort((a, b) => compareHands(a, b));
     var winnings = data.reduce((acc, cur, i) => acc + cur[1] * (i + 1), 0);
     console.log(winnings);
