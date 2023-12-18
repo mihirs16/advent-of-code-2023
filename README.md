@@ -13,3 +13,4 @@ My solutions to the [Advent of Code 2023](https://adventofcode.com/2023) puzzles
 - [Day 10: Pipe Maze](/10-pipe-maze/)
 - [Day 11: Cosmic Expansion](/11-cosmic-expansion/)
 - [Day 12: Hot Springs](/12-hot-springs/)
+- [Day 13: Point of Incidence](/13-point-of-incidence/)
