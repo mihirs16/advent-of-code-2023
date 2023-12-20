@@ -22,3 +22,4 @@ My solutions to the [Advent of Code 2023](https://adventofcode.com/2023) puzzles
 - [Day 16: The Floor Will Be Lava](/16-the-floor-will-be-lava/)
 - [Day 17: Clumsy Crucible](/17-clumsy-crucible/)
 - [Day 18: Lavaduct Lagoon](/18-lavaduct-lagoon/)
+- [Day 19: Aplenty](/19-aplenty/)
